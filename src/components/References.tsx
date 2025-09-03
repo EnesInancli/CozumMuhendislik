@@ -1,0 +1,42 @@
+import React from 'react';
+
+const logos = [
+  { name: 'Bodrum Belediyesi', src: 'src/logos/BodrumBelediye.png' },
+  { name: 'Maltepe Universitesi', src: 'src/logos/MaltepeUni.png' },
+  { name: 'Marmara Eğitim Kurumları', src: 'src/logos/MarmaraEgitim.png' },
+  { name: 'Rixos Hotel', src: 'src/logos/Rixos.png' },
+  { name: 'Sentido', src: 'src/logos/Sentido.png' },
+  { name: 'Sun Dance Resorts', src: 'src/logos/SunDance.png' }
+];
+
+export const References: React.FC = () => {
+  // Listeyi sonsuz scroll etkisi için iki kez gösteriyoruz
+  const duplicatedLogos = [...logos, ...logos];
+
+  return (
+    <section id="referanslar" className="bg-gray-50 dark:bg-slate-900 py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-12">
+          Referanslarımız
+        </h2>
+
+        {/* Auto Scroll Container */}
+        <div className="overflow-hidden relative">
+          <div
+            className="flex w-max animate-scroll gap-12 px-4"
+          >
+            {duplicatedLogos.map((logo, index) => (
+              <div key={index} className="flex-shrink-0 h-24 w-40 sm:w-48 flex items-center justify-center">
+                <img
+                  src={logo.src}
+                  alt={logo.name}
+                  className="max-h-20 object-contain w-full px-4 grayscale hover:grayscale-0 transition-all duration-300"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
