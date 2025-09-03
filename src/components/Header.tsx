@@ -29,7 +29,7 @@ export const Header: React.FC = () => {
               className="focus:outline-none inline-block"
               >
               <img
-              src="/src/assets/logo1.png"
+              src="/images/logo1.png"
               alt="Logo"
               className="w-[280px] h-[80px] object-contain cursor-pointer transition-transform hover:scale-105 block"
               />

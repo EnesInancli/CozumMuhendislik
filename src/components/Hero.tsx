@@ -15,7 +15,7 @@ export const Hero: React.FC = () => {
       {/* Arka Plan Görseli */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
-        style={{ backgroundImage: "url('/src/assets/Header_Background.jpeg')" }}
+        style={{ backgroundImage: "url('/images/Header_Background.jpeg')" }}
       />
 
       {/* Üstüne Opaklık ve Gradient */}
@@ -26,24 +26,21 @@ export const Hero: React.FC = () => {
         <div className="text-center">
           {/* Başlık */}
           <motion.h1 
-        initial={{ opacity: 0, y: -40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 tracking-tight leading-[1.1] text-center"
-      >
-      <span className="block text-gray-900">
-      Bodrum Çözüm Mühendislik
-      </span>
-      <span className="block bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent leading-[1.3]">
-      Isıtma, Soğutma, Havalandırma
-      </span>
-      <span className="block bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent leading-[1.1]">
-      ve Mekanik Tesisatta Güvenilir Çözümler
-      </span>
+            initial={{ opacity: 0, y: -40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 tracking-tight leading-[1.1] text-center"
+          >
+            <span className="block text-gray-900">
+              Bodrum Çözüm Mühendislik
+            </span>
+            <span className="block bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent leading-[1.3]">
+              Isıtma, Soğutma, Havalandırma
+            </span>
+            <span className="block bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent leading-[1.1]">
+              ve Mekanik Tesisatta Güvenilir Çözümler
+            </span>
           </motion.h1>
-
-
-
 
           {/* Açıklama */}
           <motion.p

@@ -5,12 +5,12 @@ const products = [
   {
     name: 'Klimalar',
     description: 'Yaşam alanlarınızı serin ve konforlu tutmak için etkili ve hızlı çözümler sunar.',
-    image: 'src/assets/Klimalar.jpg'
+    image: '/images/Klimalar.jpg'
   },
   {
     name: 'Isı Pompaları',
     description: 'Isıtma ve soğutmayı bir arada sunan, enerji verimli bir iklimlendirme sistemidir.',
-    image: 'src/assets/Isipompalari.jpg'
+    image: '/images/Isipompalari.jpg'
   },
 ];
 
@@ -18,10 +18,9 @@ export const Products: React.FC = () => {
   return (
     <section id="urunlerimiz" className="bg-white dark:bg-slate-800 pt-0 pb-24 transition-colors duration-300">
       
-      {/* Arka planlı başlık alanı */}
       <div className="relative h-72 md:h-96 w-full">
         <img 
-          src="src/assets/KlimaAi.png"
+          src="/images/KlimaAi.png"
           alt="Ürünler Arkaplan"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -30,7 +29,6 @@ export const Products: React.FC = () => {
         </div>
       </div>
 
-      {/* Ürün kartları alanı */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
         <div className="text-center mb-16">
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
@@ -38,7 +36,6 @@ export const Products: React.FC = () => {
           </p>
         </div>
 
-        {/* Ürünler listesi */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {products.map((product, index) => (
             <div key={index} className="group bg-gray-50 dark:bg-slate-900 rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-gray-900/10 dark:hover:shadow-slate-900/50 transition-all duration-300 hover:scale-105">
