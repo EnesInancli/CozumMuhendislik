@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Snowflake, Zap, Settings, CheckCircle, Award, TrendingUp, Shield } from 'lucide-react';
+import {Zap, Settings, CheckCircle, Award, TrendingUp, Shield } from 'lucide-react';
 
 const features = [
   {
@@ -43,7 +43,7 @@ export const VrfSystemsPage: React.FC = () => {
 <section
   className="relative py-24 bg-cover bg-center"
   style={{  
-    backgroundImage: "url(src/assets/vrfsistem.png)"
+    backgroundImage: "url(public/images/vrfsistem.png)"
   }}
 >
   <div className="absolute inset-0 bg-blue-900 bg-opacity-75 z-0"></div>
@@ -134,7 +134,7 @@ export const VrfSystemsPage: React.FC = () => {
               viewport={{ once: true }}
             >
               <img
-                src="src/assets/VrfSistemToshiba.png"
+                src="public/VrfSistemToshiba.png"
                 alt="VRF Sistem"
               />
             </motion.div>

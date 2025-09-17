@@ -32,33 +32,6 @@ const values = [
   }
 ];
 
-const timeline = [
-  {
-    year: '1995',
-    title: 'Kuruluş',
-    description: 'Metin'
-  },
-  {
-    year: '2002',
-    title: 'Büyüme',
-    description: 'Metin'
-  },
-  {
-    year: '2016',
-    title: 'Genişleme',
-    description: 'Büyük ölçekli ticari projeler almaya başladık ve referanslarımızı artırdık.'
-  },
-  {
-    year: '2020',
-    title: 'Teknoloji',
-    description: 'Akıllı klima sistemleri ve IoT teknolojilerini hizmetlerimize entegre ettik.'
-  },
-  {
-    year: '2024',
-    title: 'Liderlik',
-    description: 'Sektörde lider konuma geldik ve sürdürülebilir çözümlere odaklam.'
-  }
-];
 
 const team = [
   {
@@ -201,75 +174,8 @@ export const AboutPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Timeline Section */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Tarihçemiz</h2>
-            <p className="text-xl text-gray-600">Yıllar içindeki gelişimimiz ve kilometre taşlarımız</p>
-          </div>
 
-          <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-blue-200"></div>
-            
-            {timeline.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className={`relative flex items-center mb-12 ${
-                  index % 2 === 0 ? 'justify-start' : 'justify-end'
-                }`}
-              >
-                <div className={`w-5/12 ${index % 2 === 0 ? 'pr-8' : 'pl-8'}`}>
-                  <div className="bg-white rounded-2xl p-6 shadow-lg">
-                    <div className="text-2xl font-bold text-blue-600 mb-2">{item.year}</div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
-                    <p className="text-gray-600">{item.description}</p>
-                  </div>
-                </div>
-                
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-600 rounded-full border-4 border-white shadow-lg"></div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section className="bg-gray-50 py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Yönetim Ekibimiz</h2>
-            <p className="text-xl text-gray-600">Deneyimli ve uzman kadromuz</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {team.map((member, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-white rounded-2xl p-8 shadow-lg text-center hover:shadow-2xl transition-shadow duration-300"
-              >
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-24 h-24 rounded-full mx-auto mb-6 object-cover"
-                />
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{member.name}</h3>
-                <p className="text-blue-600 font-medium mb-3">{member.position}</p>
-                <p className="text-gray-600">{member.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
+      
       {/* Vision & Mission */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -307,20 +213,6 @@ export const AboutPage: React.FC = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-purple-600 py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
-            Bizimle Çalışmaya Hazır mısınız?
-          </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            15 yıllık deneyimimiz ve uzman ekibimizle projenizi başarıyla tamamlamaya hazırız.
-          </p>
-          <button className="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors">
-            İletişime Geçin
-          </button>
-        </div>
-      </section>
     </div>
   );
 };
