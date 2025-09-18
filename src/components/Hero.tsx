@@ -15,7 +15,7 @@ export const Hero: React.FC = () => {
       {/* Arka Plan Görseli */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
-        style={{ backgroundImage: "url('/images/Header_Background.jpeg')" }}
+        style={{ backgroundImage: "url('images/Header_Background.jpeg')" }}
       />
 
       {/* Üstüne Opaklık ve Gradient */}

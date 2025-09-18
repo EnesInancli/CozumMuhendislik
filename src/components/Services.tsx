@@ -8,55 +8,64 @@ const services = [
     icon: Fan,
     title: 'VRF Sistemleri',
     description: 'Enerji verimli, çoklu iç ünite kontrolü sunan gelişmiş iklimlendirme sistemleri.',
-    link: '/vrf-sistemleri'
+    link: '/vrf-sistemleri',
+    image: 'images/vrfsistem.png'
   },
   {
     icon: Snowflake,
     title: 'Klima Teknolojileri',
     description: 'Yüksek verimlilikte, modern ve çevre dostu klima çözümleri.',
-    link: '/klima-teknolojileri'
+    link: '/klima-teknolojileri',
+    image: 'images/KlimaAi.png'
   },
   {
     icon: ThermometerSun,
     title: 'Isı Pompası',
     description: 'Hem ısıtma hem soğutma sağlayan, enerji tasarruflu sistemler.',
-    link: '/isi-pompasi'
+    link: '/isi-pompasi',
+    image: 'images/IsiPompalari.jpg'
   },
   {
     icon: Wrench,
     title: 'Mekanik Tesisat',
     description: 'Bina içi tüm mekanik tesisat çözümleri, projelendirme ve uygulama.',
-    link: '/mekanik-tesisat'
+    link: '/mekanik-tesisat',
+    image: 'images/Header_Background.jpeg'
   },
   {
     icon: Waves,
     title: 'Havuz',
     description: 'Özel ve ticari havuz sistemlerinin planlaması, kurulumu ve bakımı.',
-    link: '/havuz'
+    link: '/havuz',
+    image: 'images/Header_Background.jpeg'
   },
   {
     icon: Droplets,
     title: 'Su Basınçlandırma',
     description: 'Yüksek katlı binalar için su basıncı düzenleme sistemleri.',
-    link: '/su-basinclandirma'
+    link: '/su-basinclandirma',
+    image: 'images/Header_Background.jpeg'
   },
   {
     icon: Wind,
     title: 'Havalandırma',
     description: 'Temiz hava sirkülasyonu sağlayan havalandırma sistemleri.',
-    link: '/havalandirma'
+    link: '/havalandirma',
+    image: 'images/Header_Background.jpeg'
   },
   {
     icon: Filter,
     title: 'Su Arıtma',
     description: 'İçme suyu kalitesini artırmak için gelişmiş su arıtma sistemleri.',
-    link: '/su-aritma'
+    link: '/su-aritma',
+    image: 'images/Header_Background.jpeg'
   },
   {
     icon: Sun,
     title: 'GES',
     description: 'Güneş enerjisi sistemleriyle sürdürülebilir ve yenilenebilir enerji çözümleri.',
-    link: '/ges'
+    link: '/ges',
+    image: 'images/Header_Background.jpeg'
   }
 ];
 
@@ -93,13 +102,25 @@ export const Services: React.FC = () => {
             >
               <Link
                 to={service.link}
-                className="group bg-white dark:bg-slate-800 rounded-2xl p-8 hover:shadow-2xl hover:shadow-gray-900/10 dark:hover:shadow-slate-900/50 transition-all duration-300 hover:scale-105 border border-gray-200 dark:border-slate-700 block"
+                className="group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-gray-900/10 dark:hover:shadow-slate-900/50 transition-all duration-300 hover:scale-105 border border-gray-200 dark:border-slate-700 block"
               >
-                <div className="bg-blue-100 dark:bg-blue-900/30 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors duration-300">
-                  <service.icon className="w-8 h-8 text-blue-600 dark:text-blue-400 group-hover:text-white transition-colors duration-300" />
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={service.image} 
+                    alt={service.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4">
+                    <div className="bg-blue-600 w-12 h-12 rounded-xl flex items-center justify-center mb-2">
+                      <service.icon className="w-6 h-6 text-white" />
+                    </div>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">{service.title}</h3>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed">{service.description}</p>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{service.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">{service.description}</p>
+                </div>
               </Link>
             </motion.div>
           ))}

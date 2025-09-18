@@ -1,12 +1,12 @@
 import React from 'react';
 
 const logos = [
-  { name: 'Bodrum Belediyesi', src: '/images/BodrumBelediye.png' },
-  { name: 'Maltepe Universitesi', src: '/images/MaltepeUni.png' },
-  { name: 'Marmara Eğitim Kurumları', src: '/images/MarmaraEgitim.png' },
-  { name: 'Rixos Hotel', src: '/images/Rixos.png' },
-  { name: 'Sentido', src: '/images/Sentido.png' },
-  { name: 'Sun Dance Resorts', src: '/images/SunDance.png' }
+  { name: 'Bodrum Belediyesi', src: 'images/BodrumBelediye.png' },
+  { name: 'Maltepe Universitesi', src: 'images/MaltepeUni.png' },
+  { name: 'Marmara Eğitim Kurumları', src: 'images/MarmaraEgitim.png' },
+  { name: 'Rixos Hotel', src: 'images/Rixos.png' },
+  { name: 'Sentido', src: 'images/Sentido.png' },
+  { name: 'Sun Dance Resorts', src: 'images/SunDance.png' }
 ];
 
 export const References: React.FC = () => {

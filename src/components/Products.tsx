@@ -5,12 +5,12 @@ const products = [
   {
     name: 'Klimalar',
     description: 'Yaşam alanlarınızı serin ve konforlu tutmak için etkili ve hızlı çözümler sunar.',
-    image: '/images/Klimalar.jpg'
+    image: 'images/Klimalar.jpg'
   },
   {
     name: 'Isı Pompaları',
     description: 'Isıtma ve soğutmayı bir arada sunan, enerji verimli bir iklimlendirme sistemidir.',
-    image: '/images/Isipompalari.jpg'
+    image: 'images/IsiPompalari.jpg'
   },
 ];
 
@@ -20,7 +20,7 @@ export const Products: React.FC = () => {
       
       <div className="relative h-72 md:h-96 w-full">
         <img 
-          src="/images/KlimaAi.png"
+          src="images/KlimaAi.png"
           alt="Ürünler Arkaplan"
           className="absolute inset-0 w-full h-full object-cover"
         />
