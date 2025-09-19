@@ -129,11 +129,18 @@ export const Header: React.FC = () => {
               {activeDropdown === 'products' && (
                 <div className="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-lg py-2">
                   <Link 
-                    to="/urunlerimiz"
+                    to="/klimalar"
                     onClick={() => setActiveDropdown(null)}
                     className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
                   >
-                    TOSHİBA SPLİT KLİMALAR
+                    Klimalar
+                  </Link>
+                  <Link 
+                    to="/isi-pompalari"
+                    onClick={() => setActiveDropdown(null)}
+                    className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
+                  >
+                    Isı Pompaları
                   </Link>
                 </div>
               )}
@@ -262,11 +269,18 @@ export const Header: React.FC = () => {
                 {activeDropdown === 'mobile-products' && (
                   <div className="mt-2 ml-4 space-y-2">
                     <Link 
-                      to="/urunlerimiz"
+                      to="/klimalar"
                       onClick={() => setIsMenuOpen(false)}
                       className="block text-gray-500 hover:text-blue-600 transition-colors text-left"
                     >
-                      TOSHİBA SPLİT KLİMALAR
+                      Klimalar
+                    </Link>
+                    <Link 
+                      to="/isi-pompalari"
+                      onClick={() => setIsMenuOpen(false)}
+                      className="block text-gray-500 hover:text-blue-600 transition-colors text-left"
+                    >
+                      Isı Pompaları
                     </Link>
                   </div>
                 )}

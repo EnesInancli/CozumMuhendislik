@@ -11,6 +11,7 @@ import { AboutPage } from './pages/AboutPage';
 import { ContactPage } from './pages/ContactPage';
 import { VrfSystemsPage } from './pages/VrfSystemsPage';
 import { ClimateSystemsPage } from './pages/ClimateSystemsPage';
+import { HeatPumpProductsPage } from './pages/HeatPumpProductsPage';
 import { HeatPumpPage } from './pages/HeatPumpPage';
 import { MechanicalInstallationPage } from './pages/MechanicalInstallationPage';
 import { WaterPressurePage } from './pages/WaterPressurePage';
@@ -29,7 +30,8 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/urunlerimiz" element={<ProductsPage />} />
+          <Route path="/klimalar" element={<ClimateSystemsPage />} />
+          <Route path="/isi-pompalari" element={<HeatPumpProductsPage />} />
           <Route path="/referanslar" element={<ReferencesPage />} />
           <Route path="/galeri" element={<GalleryPage />} />
           <Route path="/hakkimizda" element={<AboutPage />} />

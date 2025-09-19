@@ -1,77 +1,59 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Snowflake, Thermometer, Zap, Shield, Star, Award, CheckCircle } from 'lucide-react';
+import { Thermometer, Leaf, Zap, Shield, CheckCircle } from 'lucide-react';
 
-const climateProducts = [
+const heatPumpProducts = [
   {
-    category: 'Toshiba Split Klimalar',
-    description: 'Japon teknolojisi ile üstün performans ve enerji verimliliği sunan split klima sistemleri.',
+    category: 'Toshiba Estia Split Isı Pompası',
+    description: 'Japon teknolojisi ile üstün performans sunan, çevre dostu R32 gazlı split tip ısı pompası sistemleri.',
     products: [
       {
-        name: 'TOSHIBA RAS-B10BKVG-TR',
-        capacity: '9000 BTU',
-        features: ['A++ Enerji Sınıfı', 'İnverter Teknoloji', 'R32 Çevre Dostu Gaz', 'WiFi Kontrol'],
-        image: 'images/Klimalar.jpg'
+        name: 'TOSHIBA Estia 6 kW',
+        capacity: '6 kW',
+        features: ['R32 Çevre Dostu Gaz', 'A+++ Enerji Sınıfı', '-25°C\'ye Kadar Çalışma', 'Akıllı Defrost'],
+        image: 'images/IsiPompalari.jpg'
       },
       {
-        name: 'TOSHIBA RAS-B13BKVG-TR',
-        capacity: '12000 BTU',
-        features: ['A++ Enerji Sınıfı', 'İnverter Teknoloji', 'Akıllı Sensör', 'Turbo Soğutma'],
-        image: 'images/Klimalar.jpg'
+        name: 'TOSHIBA Estia 8 kW',
+        capacity: '8 kW',
+        features: ['Yüksek COP Değeri', 'Sessiz Çalışma', 'Uzaktan Kontrol', 'Kompakt Tasarım'],
+        image: 'images/IsiPompalari.jpg'
       }
     ]
   },
   {
-    category: 'Toshiba Multi Klimalar',
-    description: 'Tek dış ünite ile çoklu iç ünite kontrolü sağlayan, enerji verimli multi split sistemler.',
+    category: 'Alarko Flair Monoblok Isı Pompası',
+    description: 'Tek parça tasarım ile kolay kurulum sunan, güvenilir monoblok ısı pompası sistemleri.',
     products: [
       {
-        name: 'TOSHIBA Multi Split 2+1',
-        capacity: '18000 BTU',
-        features: ['Tek dış ünite', 'Çoklu iç ünite', 'Bireysel kontrol', 'Enerji tasarrufu'],
-        image: 'images/Klimalar.jpg'
+        name: 'ALARKO Flair Mono 6 kW',
+        capacity: '6 kW',
+        features: ['Monoblok Tasarım', 'Kolay Kurulum', 'Türk Malı', 'Ekonomik Çözüm'],
+        image: 'images/IsiPompalari.jpg'
       },
       {
-        name: 'TOSHIBA Multi Split 3+1',
-        capacity: '24000 BTU',
-        features: ['3 iç ünite', 'Akıllı kontrol', 'Sessiz çalışma', 'Kompakt tasarım'],
-        image: 'images/Klimalar.jpg'
+        name: 'ALARKO Flair Mono 10 kW',
+        capacity: '10 kW',
+        features: ['Yüksek Kapasite', 'Dayanıklı Yapı', 'Uzun Ömür', 'Servis Desteği'],
+        image: 'images/IsiPompalari.jpg'
       }
     ]
   },
   {
-    category: 'Alarko Split Klimalar',
-    description: 'Türk mühendisliği ile geliştirilen, güvenilir ve ekonomik split klima çözümleri.',
+    category: 'Alarko Flair Split Isı Pompası',
+    description: 'İç ve dış ünite ayrımı ile esnek kurulum imkanı sunan split tip ısı pompası çözümleri.',
     products: [
       {
-        name: 'ALARKO Split 9000 BTU',
-        capacity: '9000 BTU',
-        features: ['A+ Enerji Sınıfı', 'Türk Malı', 'Ekonomik Çözüm', 'Kolay Bakım'],
-        image: 'images/Klimalar.jpg'
+        name: 'ALARKO Flair Split 8 kW',
+        capacity: '8 kW',
+        features: ['Split Tasarım', 'Esnek Kurulum', 'Sessiz İç Ünite', 'Dijital Kontrol'],
+        image: 'images/IsiPompalari.jpg'
       },
       {
-        name: 'ALARKO Split 12000 BTU',
-        capacity: '12000 BTU',
-        features: ['A+ Enerji Sınıfı', 'Güvenilir Sistem', 'Uzun Ömür', 'Servis Desteği'],
-        image: 'images/Klimalar.jpg'
-      }
-    ]
-  },
-  {
-    category: 'Alarko Multi Klimalar',
-    description: 'Çoklu oda klimatizasyonu için ekonomik ve pratik multi split çözümleri.',
-    products: [
-      {
-        name: 'ALARKO Multi 2+1',
-        capacity: '18000 BTU',
-        features: ['2 iç ünite', 'Ekonomik fiyat', 'Kolay kurulum', 'Türk malı'],
-        image: 'images/Klimalar.jpg'
-      },
-      {
-        name: 'ALARKO Multi 4+1',
-        capacity: '30000 BTU',
-        features: ['4 iç ünite', 'Geniş kapasite', 'Merkezi kontrol', 'Dayanıklı yapı'],
-        image: 'images/Klimalar.jpg'
+        name: 'ALARKO Flair Split 12 kW',
+        capacity: '12 kW',
+        features: ['Büyük Kapasiteler', 'Yüksek Verimlilik', 'Akıllı Kontrol', 'Güvenilir Sistem'],
+        image: 'images/IsiPompalari.jpg'
       }
     ]
   }
@@ -79,32 +61,32 @@ const climateProducts = [
 
 const features = [
   {
-    icon: Zap,
-    title: 'Enerji Tasarrufu',
-    description: 'İnverter teknolojisi ile %60\'a varan enerji tasarrufu'
+    icon: Thermometer,
+    title: 'Verimli Isıtma',
+    description: 'Düşük sıcaklıklarda bile yüksek performans'
   },
   {
-    icon: Snowflake,
-    title: 'Hızlı Soğutma',
-    description: 'Turbo mod ile 30 saniyede hızlı soğutma'
+    icon: Leaf,
+    title: 'Çevre Dostu',
+    description: 'Düşük karbon emisyonu ile çevre koruma'
+  },
+  {
+    icon: Zap,
+    title: 'Enerji Tasarrufu',
+    description: '%75\'e varan enerji tasarrufu'
   },
   {
     icon: Shield,
     title: 'Güvenilir Marka',
-    description: 'Toshiba ve Alarko güvencesi ile kaliteli hizmet'
-  },
-  {
-    icon: Thermometer,
-    title: 'Akıllı Kontrol',
-    description: 'WiFi ile uzaktan kontrol ve programlama'
+    description: 'Toshiba ve Alarko güvencesi'
   }
 ];
 
-export const ClimateSystemsPage: React.FC = () => {
+export const HeatPumpProductsPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 via-white to-purple-50 py-24">
+      <section className="bg-gradient-to-br from-green-50 via-white to-blue-50 py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <motion.h1 
@@ -113,7 +95,7 @@ export const ClimateSystemsPage: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="text-5xl sm:text-6xl font-bold text-gray-900 mb-6"
             >
-              Klimalar
+              Isı Pompaları
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 30 }}
@@ -121,8 +103,8 @@ export const ClimateSystemsPage: React.FC = () => {
               transition={{ duration: 1, delay: 0.2 }}
               className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto"
             >
-              Toshiba ve Alarko markaları ile enerji verimli, teknolojik klima çözümleri. 
-              Split ve multi sistemler ile her ihtiyaca uygun seçenekler.
+              Toshiba Estia ve Alarko Flair serisi ile çevre dostu, enerji verimli ısı pompası sistemleri. 
+              Hem ısıtma hem soğutma için ideal çözümler.
             </motion.p>
           </div>
         </div>
@@ -141,8 +123,8 @@ export const ClimateSystemsPage: React.FC = () => {
                 viewport={{ once: true }}
                 className="text-center"
               >
-                <div className="bg-blue-100 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <feature.icon className="w-8 h-8 text-blue-600" />
+                <div className="bg-green-100 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <feature.icon className="w-8 h-8 text-green-600" />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">{feature.title}</h3>
                 <p className="text-gray-600">{feature.description}</p>
@@ -153,7 +135,7 @@ export const ClimateSystemsPage: React.FC = () => {
       </section>
 
       {/* Products Sections */}
-      {climateProducts.map((category, categoryIndex) => (
+      {heatPumpProducts.map((category, categoryIndex) => (
         <section key={categoryIndex} className={`py-24 ${categoryIndex % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
@@ -177,7 +159,7 @@ export const ClimateSystemsPage: React.FC = () => {
                       alt={product.name}
                       className="w-full h-48 object-cover"
                     />
-                    <div className="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                    <div className="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-medium">
                       {product.capacity}
                     </div>
                   </div>
@@ -194,7 +176,7 @@ export const ClimateSystemsPage: React.FC = () => {
                       ))}
                     </div>
 
-                    <button className="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors">
+                    <button className="w-full bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-medium transition-colors">
                       Detaylı Bilgi Al
                     </button>
                   </div>
@@ -206,15 +188,15 @@ export const ClimateSystemsPage: React.FC = () => {
       ))}
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-purple-600 py-24">
+      <section className="bg-gradient-to-r from-green-600 to-blue-600 py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">
-            Size Uygun Klima Çözümünü Bulalım
+            Çevre Dostu Isı Pompası ile Tasarruf Edin
           </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Uzman ekibimiz ile ücretsiz keşif hizmeti alın ve en uygun klimayı seçin.
+          <p className="text-xl text-green-100 mb-8 max-w-2xl mx-auto">
+            Uzman ekibimiz ile ücretsiz keşif hizmeti alın ve size en uygun ısı pompasını seçin.
           </p>
-          <button className="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors">
+          <button className="bg-white text-green-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors">
             Ücretsiz Keşif Talep Et
           </button>
         </div>

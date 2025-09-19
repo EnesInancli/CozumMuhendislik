@@ -42,10 +42,18 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link 
-                  to="/urunlerimiz"
+                  to="/klimalar"
                   className="hover:text-white transition-colors text-left"
                 >
-                  Ürünlerimiz
+                  Klimalar
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  to="/isi-pompalari"
+                  className="hover:text-white transition-colors text-left"
+                >
+                  Isı Pompaları
                 </Link>
               </li>
               <li>
