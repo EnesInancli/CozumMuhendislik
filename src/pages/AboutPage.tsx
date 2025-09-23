@@ -33,27 +33,6 @@ const values = [
 ];
 
 
-const team = [
-  {
-    name: 'Ahmet Yılmaz',
-    position: 'Genel Müdür',
-    image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
-    description: '20 yıllık sektör deneyimi'
-  },
-  {
-    name: 'Elif Kaya',
-    position: 'Teknik Müdür',
-    image: 'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=400',
-    description: 'VRF sistemleri uzmanı'
-  },
-  {
-    name: 'Mehmet Demir',
-    position: 'Proje Müdürü',
-    image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400',
-    description: 'Büyük ölçekli projeler'
-  }
-];
-
 export const AboutPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
@@ -113,19 +92,14 @@ export const AboutPage: React.FC = () => {
             >
               <h2 className="text-4xl font-bold text-gray-900 mb-6">Hikayemiz</h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                2008 yılında İstanbul'da küçük bir ekiple başladığımız yolculuğumuzda, 
-                klima ve mekanik tesisat sektöründe kaliteli hizmet anlayışımızla 
-                müşterilerimizin güvenini kazandık.
+              Şirketimiz Bodrum‘da kurulmuş olup mekanik tesisat konusunda taahhütlü satış ve servis üzerine çalışmaktadır.
+
               </p>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                Yıllar içinde büyüyen ekibimiz ve artan deneyimimizle, sektörde 
-                öncü konuma geldik. Teknolojik gelişmeleri yakından takip ederek, 
-                müşterilerimize en inovatif çözümleri sunmaya devam ediyoruz.
+              ALARKO CARRİER TOSHİBA 'nın BODRUM bölge bayisiyiz, ayrıca SERKON, BOGENN, ATLAS ve CARİSA firmalarının Bodrum bayiliğini yapmaktadır. Bölgede ısıtma, soğutma, havalandırma, yüzme havuzu, sıhhi tesisat ve altyapı üzerine yapmış olduğumuz bir çok taahhüt referanslarımız vardır. Firmamız Bodrum ve çevresinde komple otel mekanik tesisat yapımı konusunda uzman bir ekibe sahiptir.
+
               </p>
-              <p className="text-lg text-gray-600 leading-relaxed">
-                Bugün 25 kişilik uzman ekibimizle, 1000'den fazla mutlu müşterimize 
-                hizmet vermenin gururunu yaşıyoruz.
-              </p>
+              
             </motion.div>
             
             <motion.div
@@ -136,8 +110,8 @@ export const AboutPage: React.FC = () => {
               className="relative"
             >
               <img
-                src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Ekibimiz"
+                src="images/bina.webp"
+                alt="Binamız"
                 className="w-full h-96 object-cover rounded-2xl shadow-2xl"
               />
             </motion.div>

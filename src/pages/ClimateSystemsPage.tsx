@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Snowflake, Thermometer, Zap, Shield, Star, Award, CheckCircle } from 'lucide-react';
+import { Snowflake, Thermometer, Zap, Shield, Dot } from 'lucide-react';
 
 const climateProducts = [
   {
@@ -8,16 +8,24 @@ const climateProducts = [
     description: 'Japon teknolojisi ile üstün performans ve enerji verimliliği sunan split klima sistemleri.',
     products: [
       {
-        name: 'TOSHIBA RAS-B10BKVG-TR',
-        capacity: '9000 BTU',
-        features: ['A++ Enerji Sınıfı', 'İnverter Teknoloji', 'R32 Çevre Dostu Gaz', 'WiFi Kontrol'],
-        image: 'images/Klimalar.jpg'
+        name: 'TOSHIBA SEIYA',
+        features: ['SEIYA’nın konfor ve performans optimizasyonu onu rakiplerine göre eşsiz bir ürün haline getirmektedir. Tüm ürün gamı A++ soğutma ve A+ ısıtma enerji sınıfındadır ve bu çok düşük enerji tüketimiyle optimum konfor anlamına gelmektedir.'],
+        image: 'images/seiya.webp'
       },
       {
-        name: 'TOSHIBA RAS-B13BKVG-TR',
-        capacity: '12000 BTU',
-        features: ['A++ Enerji Sınıfı', 'İnverter Teknoloji', 'Akıllı Sensör', 'Turbo Soğutma'],
-        image: 'images/Klimalar.jpg'
+        name: 'TOSHİBA SHORAI EDGE',
+        features: ['Ultra Saf hava filtresi ve tasarım uzaktan kumandasıyla en yüksek enerji verimliliği. 3D ve Careflow hava dağıtımı, hava akışını odada cereyansız hale getirir. 1:1 tek dış üniteyle veya 2 ila 5 odalı çoklu dış ünitede diğer iç ünitelerle birlikte kullanılabilir.'],
+        image: 'images/shorai.webp'
+      },
+      {
+        name: 'TOSHİBA HAORI',
+        features: ['A+++ enerji sınıfı ile yüksek enerji tasarrufu, dahili enerji tüketimi modülü ile sürekli izleme, standart wi-fi kiti ile istediğiniz her yerden kontrol imkanı, şık ve göz alıcı kumaş kaplama özelliği ile tüm ihtiyaçlarınızı karşılayan klimanız HAORI...'],
+        image: 'images/haori.jpg'
+      },
+      {
+        name: 'TOSHİBA DAISEIKAI 10',
+        features: ['DAISAIKAI 10, yenilikçi tasarım, yüksek verimlilik ve maksimum konforun simgesidir. Sadece soğutma veya ısıtma için bile fazlasıyla iyidir. Oda havası en üst düzeyde taşınır ve temizlenir. 1:1 tek dış üniteyle veya 2 ila 5 odalı çoklu dış ünitede diğer iç ünitelerle birlikte kullanılabilir.'],
+        image: 'images/daiseikai.webp'
       }
     ]
   },
@@ -177,9 +185,7 @@ export const ClimateSystemsPage: React.FC = () => {
                       alt={product.name}
                       className="w-full h-48 object-cover"
                     />
-                    <div className="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-                      {product.capacity}
-                    </div>
+        
                   </div>
 
                   <div className="p-6">
@@ -188,15 +194,12 @@ export const ClimateSystemsPage: React.FC = () => {
                     <div className="space-y-3 mb-6">
                       {product.features.map((feature, featureIndex) => (
                         <div key={featureIndex} className="flex items-center text-sm text-gray-600">
-                          <CheckCircle className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
+                          <Dot className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
                           {feature}
                         </div>
                       ))}
                     </div>
 
-                    <button className="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors">
-                      Detaylı Bilgi Al
-                    </button>
                   </div>
                 </motion.div>
               ))}
@@ -212,10 +215,10 @@ export const ClimateSystemsPage: React.FC = () => {
             Size Uygun Klima Çözümünü Bulalım
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Uzman ekibimiz ile ücretsiz keşif hizmeti alın ve en uygun klimayı seçin.
+            Uzman ekibimiz en uygun klimayı seçin.
           </p>
           <button className="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors">
-            Ücretsiz Keşif Talep Et
+            Hemen İletişime Geçin
           </button>
         </div>
       </section>

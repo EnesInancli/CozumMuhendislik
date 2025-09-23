@@ -10,9 +10,14 @@ export const Footer: React.FC = () => {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">B</span>
-              </div>
+            <div className="w-12 h-12 flex items-center justify-center">
+              <img 
+                src="images/SekmeLogosu.png" 
+                alt="Bodrum Çözüm Mühendislik Logo" 
+                className="w-full h-full object-contain"
+              />
+            </div>
+
               <span className="text-xl font-bold">Bodrum Çözüm Mühendislik</span>
             </div>
             <p className="text-gray-300 mb-6 max-w-md leading-relaxed">
@@ -32,30 +37,7 @@ export const Footer: React.FC = () => {
                   Hakkımızda
                 </Link>
               </li>
-              <li>
-                <Link 
-                  to="/hizmetlerimiz"
-                  className="hover:text-white transition-colors text-left"
-                >
-                  Hizmetlerimiz
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/klimalar"
-                  className="hover:text-white transition-colors text-left"
-                >
-                  Klimalar
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/isi-pompalari"
-                  className="hover:text-white transition-colors text-left"
-                >
-                  Isı Pompaları
-                </Link>
-              </li>
+            
               <li>
                 <Link 
                   to="/referanslar"

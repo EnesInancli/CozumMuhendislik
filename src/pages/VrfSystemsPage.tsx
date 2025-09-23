@@ -25,44 +25,6 @@ const features = [
   }
 ];
 
-const systems = [
-  {
-    name: 'Heat Recovery VRF',
-    description: 'Aynı anda ısıtma ve soğutma yapabilen sistem',
-    features: [
-      'Eşzamanlı ısıtma/soğutma',
-      'Enerji geri kazanımı',
-      'Yüksek verimlilik',
-      'Çevre dostu'
-    ],
-    capacity: '8-130 HP',
-    applications: ['Ofis Binaları', 'Oteller', 'Hastaneler']
-  },
-  {
-    name: 'Heat Pump VRF',
-    description: 'Sadece ısıtma veya soğutma yapan sistem',
-    features: [
-      'Basit kontrol',
-      'Ekonomik çözüm',
-      'Kolay kurulum',
-      'Düşük bakım'
-    ],
-    capacity: '2-54 HP',
-    applications: ['Konutlar', 'Küçük Ofisler', 'Mağazalar']
-  },
-  {
-    name: 'Water Cooled VRF',
-    description: 'Su soğutmalı dış ünite sistemi',
-    features: [
-      'Yüksek verimlilik',
-      'Sessiz çalışma',
-      'Kompakt tasarım',
-      'Uzun ömür'
-    ],
-    capacity: '10-130 HP',
-    applications: ['AVM\'ler', 'Büyük Binalar', 'Endüstri']
-  }
-];
 
 const applications = [
   {
@@ -114,7 +76,6 @@ export const VrfSystemsPage: React.FC = () => {
       heroImage="images/vrfsistem.png"
       features={features}
       mainContent={mainContent}
-      systems={systems}
       applications={applications}
       ctaTitle="VRF Sistemi"
       ctaDescription="Projeniz için en uygun VRF çözümünü belirlemek üzere uzman ekibimizle hemen iletişime geçebilirsiniz."

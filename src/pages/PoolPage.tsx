@@ -93,7 +93,7 @@ const mainContent = {
     'Modern havuz sistemleri, su sirkülasyonu, filtrasyon, kimyasal dengeleme ve dezenfeksiyon süreçlerini otomatik olarak yönetir.',
     'Akıllı kontrol sistemleri ile su kalitesi sürekli izlenir ve optimal seviyede tutulur.'
   ],
-  image: 'images/Header_Background.jpeg',
+  image: 'images/havuz.jpeg',
   advantages: [
     'Otomatik su temizleme',
     'Kimyasal dengeleme',
@@ -111,7 +111,7 @@ export const PoolPage: React.FC = () => {
     <ServicePageTemplate
       title="Havuz Sistemleri"
       subtitle="Özel ve ticari havuzlar için hijyenik, enerji verimli ve güvenli sistem çözümleri sunuyoruz."
-      heroImage="images/Header_Background.jpeg"
+      heroImage="images/havuz.jpeg"
       features={features}
       mainContent={mainContent}
       systems={systems}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle, Award } from 'lucide-react';
+import { CheckCircle} from 'lucide-react';
 
 interface Feature {
   icon: React.ComponentType<{ className?: string }>;

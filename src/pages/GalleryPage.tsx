@@ -1,65 +1,29 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { X, ChevronLeft, ChevronRight, Camera, Image as ImageIcon } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const galleryImages = [
   {
-    src: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800',
-    title: 'VRF Sistem Kurulumu',
-    category: 'Kurulum',
-    description: 'Büyük ölçekli VRF sistem kurulum çalışması'
+    src: 'images/havuz.jpeg',
+    title: 'Olimpik Havuz',
+    category: 'Havuz',
+    description: 'Bodrum Marmara Koleji Yarı Olimpik Havuz'
   },
   {
-    src: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800',
-    title: 'Teknik Ekip Çalışması',
-    category: 'Ekip',
-    description: 'Profesyonel teknisyen ekibimiz iş başında'
+    src: 'images/kazandairesi.jpeg',
+    title: 'Havuz Kazan Dairesi',
+    category: 'Mekanik Tesisat',
+    description: 'Maltepe Üniversitesi Havuz Makine Dairesi'
   },
   {
-    src: 'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=800',
-    title: 'Proje Planlama',
-    category: 'Planlama',
-    description: 'Detaylı proje planlama ve tasarım süreci'
-  },
-  {
-    src: 'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=800',
-    title: 'Modern Ofis Kliması',
+    src: 'images/bina.webp',
+    title: 'Binamız',
     category: 'Ofis',
-    description: 'Ofis binası klima sistemi kurulumu'
-  },
-  {
-    src: 'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=800',
-    title: 'Kalite Kontrol',
-    category: 'Kontrol',
-    description: 'Sistem kurulumu sonrası kalite kontrol'
-  },
-  {
-    src: 'https://images.pexels.com/photos/3184432/pexels-photo-3184432.jpeg?auto=compress&cs=tinysrgb&w=800',
-    title: 'Bakım Hizmeti',
-    category: 'Bakım',
-    description: 'Düzenli bakım ve servis hizmetleri'
-  },
-  {
-    src: 'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800',
-    title: 'Split Klima Kurulumu',
-    category: 'Kurulum',
-    description: 'Konut tipi split klima kurulum işlemi'
-  },
-  {
-    src: 'https://images.pexels.com/photos/159045/the-interior-of-the-repair-interior-design-159045.jpeg?auto=compress&cs=tinysrgb&w=800',
-    title: 'Mekanik Tesisat',
-    category: 'Tesisat',
-    description: 'Kapsamlı mekanik tesisat çalışması'
-  },
-  {
-    src: 'https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=800',
-    title: 'Sistem Testleri',
-    category: 'Test',
-    description: 'Kurulum sonrası sistem performans testleri'
+    description: 'Maltepe Üniversitesi Havuz Makine Dairesi'
   }
 ];
 
-const categories = ['Tümü', 'Kurulum', 'Ekip', 'Planlama', 'Ofis', 'Kontrol', 'Bakım', 'Tesisat', 'Test'];
+const categories = ['Tümü', 'Ofis', 'VRF sistemleri', 'Klima Teknolojileri', 'Isı Pompası', 'Mekanik Tesisat', 'Havuz', 'Su Basınçlandırma ', 'Havalandırma', 'Su arıtma','GES'];
 
 export const GalleryPage: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
@@ -111,46 +75,6 @@ export const GalleryPage: React.FC = () => {
             >
               Gerçekleştirdiğimiz projeler, çalışma süreçlerimiz ve profesyonel ekibimizden kareler.
             </motion.p>
-          </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-center bg-white rounded-2xl p-8 shadow-lg"
-            >
-              <div className="bg-blue-100 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Camera className="w-8 h-8 text-blue-600" />
-              </div>
-              <div className="text-3xl font-bold text-gray-900 mb-2">500+</div>
-              <div className="text-gray-600">Proje Fotoğrafı</div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              className="text-center bg-white rounded-2xl p-8 shadow-lg"
-            >
-              <div className="bg-blue-100 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <ImageIcon className="w-8 h-8 text-blue-600" />
-              </div>
-              <div className="text-3xl font-bold text-gray-900 mb-2">50+</div>
-              <div className="text-gray-600">Tamamlanan Proje</div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-center bg-white rounded-2xl p-8 shadow-lg"
-            >
-              <div className="bg-blue-100 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Camera className="w-8 h-8 text-blue-600" />
-              </div>
-              <div className="text-3xl font-bold text-gray-900 mb-2">15+</div>
-              <div className="text-gray-600">Yıllık Deneyim</div>
-            </motion.div>
           </div>
         </div>
       </section>

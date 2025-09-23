@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Clock, Send, MessageCircle, Calendar, Users } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, Send,} from 'lucide-react';
 
 export const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -30,28 +30,33 @@ export const ContactPage: React.FC = () => {
     {
       icon: Phone,
       title: 'Telefon',
-      details: ['+90 (212) 123 45 67', '+90 (532) 123 45 67'],
+      details: ['+90 (252) 363 77 16'],
       color: 'bg-blue-100 text-blue-600'
     },
     {
       icon: Mail,
       title: 'E-posta',
-      details: ['info@sirketadi.com', 'destek@sirketadi.com'],
+      details: ['info@bodrumcozummuhendislik.com'],
       color: 'bg-green-100 text-green-600'
     },
     {
       icon: MapPin,
       title: 'Adres',
-      details: ['Maslak Mahallesi, Teknoloji Caddesi', 'No: 123, Kat: 5, 34485 Sarıyer/İstanbul'],
+      details: [
+        'Podium İş Merkezi, Konacık',
+        'Atatürk Blv. No:178,',
+        '48100 Bodrum/Muğla'
+      ],
       color: 'bg-purple-100 text-purple-600'
     },
     {
       icon: Clock,
       title: 'Çalışma Saatleri',
-      details: ['Pazartesi - Cuma: 09:00 - 18:00', 'Cumartesi: 09:00 - 14:00'],
+      details: ['Pazartesi - Cumartesi: 09:00 - 18:00'],
       color: 'bg-orange-100 text-orange-600'
     }
   ];
+  
 
   const services = [
     'VRF Sistemleri',
@@ -62,23 +67,6 @@ export const ContactPage: React.FC = () => {
     'Diğer'
   ];
 
-  const features = [
-    {
-      icon: MessageCircle,
-      title: '24 Saat İçinde Yanıt',
-      description: 'Tüm mesajlarınıza 24 saat içinde dönüş yapıyoruz'
-    },
-    {
-      icon: Calendar,
-      title: 'Ücretsiz Keşif',
-      description: 'Projeniz için ücretsiz keşif ve danışmanlık hizmeti'
-    },
-    {
-      icon: Users,
-      title: 'Uzman Ekip',
-      description: '15+ yıl deneyimli profesyonel ekibimiz'
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-white">
@@ -105,24 +93,7 @@ export const ContactPage: React.FC = () => {
             </motion.p>
           </div>
 
-          {/* Features */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="text-center bg-white rounded-2xl p-8 shadow-lg"
-              >
-                <div className="bg-blue-100 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <feature.icon className="w-8 h-8 text-blue-600" />
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
-              </motion.div>
-            ))}
-          </div>
+
         </div>
       </section>
 
@@ -160,7 +131,7 @@ export const ContactPage: React.FC = () => {
                 <div className="text-center">
                   <MapPin className="w-12 h-12 text-gray-400 mx-auto mb-4" />
                   <p className="text-gray-600">Harita Görünümü</p>
-                  <p className="text-sm text-gray-500">Maslak, Sarıyer/İstanbul</p>
+                  <p className="text-sm text-gray-500">Bodrum</p>
                 </div>
               </div>
             </motion.div>
@@ -291,62 +262,6 @@ export const ContactPage: React.FC = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="bg-gray-50 py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Sık Sorulan Sorular</h2>
-            <p className="text-xl text-gray-600">Merak ettiğiniz konular hakkında bilgi alın</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <h3 className="text-lg font-bold text-gray-900 mb-3">Keşif hizmeti ücretli mi?</h3>
-              <p className="text-gray-600">Hayır, tüm keşif hizmetlerimiz ücretsizdir. Uzman ekibimiz projenizi değerlendirip size en uygun çözümü sunar.</p>
-            </div>
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <h3 className="text-lg font-bold text-gray-900 mb-3">Garanti süresi ne kadar?</h3>
-              <p className="text-gray-600">Ürünlerimiz için 2-5 yıl arası garanti sunuyoruz. İşçilik garantimiz ise 2 yıldır.</p>
-            </div>
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <h3 className="text-lg font-bold text-gray-900 mb-3">Bakım hizmeti veriyor musunuz?</h3>
-              <p className="text-gray-600">Evet, kurduğumuz tüm sistemler için düzenli bakım ve 7/24 teknik destek hizmeti veriyoruz.</p>
-            </div>
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <h3 className="text-lg font-bold text-gray-900 mb-3">Proje süresi ne kadar?</h3>
-              <p className="text-gray-600">Proje büyüklüğüne göre değişmekle birlikte, ortalama 1-4 hafta arasında tamamlanır.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-purple-600 py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
-            Hemen Arayın, Ücretsiz Keşif Alın
-          </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Projeniz için en uygun çözümü bulmak üzere uzman ekibimiz size ücretsiz keşif hizmeti sunuyor.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="tel:+902121234567"
-              className="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors inline-flex items-center justify-center space-x-2"
-            >
-              <Phone className="w-5 h-5" />
-              <span>Hemen Arayın</span>
-            </a>
-            <a
-              href="mailto:info@sirketadi.com"
-              className="bg-blue-800 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-blue-900 transition-colors inline-flex items-center justify-center space-x-2"
-            >
-              <Mail className="w-5 h-5" />
-              <span>E-posta Gönderin</span>
-            </a>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };

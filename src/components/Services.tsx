@@ -37,7 +37,7 @@ const services = [
     title: 'Havuz',
     description: 'Özel ve ticari havuz sistemlerinin planlaması, kurulumu ve bakımı.',
     link: '/havuz',
-    image: 'images/Header_Background.jpeg'
+    image: 'images/havuz.jpeg'
   },
   {
     icon: Droplets,
