@@ -322,9 +322,9 @@ export const Header: React.FC = () => {
       {/* Overlay to close dropdowns */}
       {activeDropdown && (
         <div 
-          className="fixed inset-0 z-40" 
-          onClick={() => setActiveDropdown(null)}
-        />
+        className="fixed inset-0 z-30 lg:hidden" // sadece mobilde overlay’i düşür
+        onClick={() => setActiveDropdown(null)}
+      />      
       )}
     </header>
   );
