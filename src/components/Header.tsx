@@ -1,4 +1,4 @@
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 
@@ -22,18 +22,17 @@ export const Header: React.FC = () => {
           {/* Logo */}
           <div className="flex items-center">
             <div className="flex items-center space-x-3">
-            <Link 
-              to="/" 
-              onClick={navigateToHome} 
-              className="focus:outline-none inline-block"
+              <Link 
+                to="/" 
+                onClick={navigateToHome} 
+                className="focus:outline-none inline-block"
               >
-              <img
-              src="images/Logo1.png"
-              alt="Logo"
-              className="w-[280px] h-[80px] object-contain cursor-pointer transition-transform hover:scale-105 block"
-              />
-          </Link>
-
+                <img
+                  src="images/Logo1.png"
+                  alt="Logo"
+                  className="w-[280px] h-[80px] object-contain cursor-pointer transition-transform hover:scale-105 block"
+                />
+              </Link>
             </div>
           </div>
           
@@ -49,70 +48,16 @@ export const Header: React.FC = () => {
                 <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === 'services' ? 'rotate-180' : ''}`} />
               </button>
               {activeDropdown === 'services' && (
-                <div className="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-lg py-2">
-                  <Link 
-                    to="/vrf-sistemleri"
-                    onClick={() => setActiveDropdown(null)}
-                    className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
-                  >
-                    VRF Sistemleri
-                  </Link>
-                  <Link 
-                    to="/klima-teknolojileri"
-                    onClick={() => setActiveDropdown(null)}
-                    className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
-                  >
-                    Klima Teknolojileri
-                  </Link>
-                  <Link 
-                    to="/isi-pompasi"
-                    onClick={() => setActiveDropdown(null)}
-                    className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
-                  >
-                    Isı Pompası
-                  </Link>
-                  <Link 
-                    to="/mekanik-tesisat"
-                    onClick={() => setActiveDropdown(null)}
-                    className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
-                  >
-                    Mekanik Tesisat
-                  </Link>
-                  <Link 
-                    to="/havuz"
-                    onClick={() => setActiveDropdown(null)}
-                    className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
-                  >
-                    Havuz
-                  </Link>
-                  <Link 
-                    to="/su-basinclandirma"
-                    onClick={() => setActiveDropdown(null)}
-                    className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
-                  >
-                    Su Basınçlandırma
-                  </Link>
-                  <Link 
-                    to="/havalandirma"
-                    onClick={() => setActiveDropdown(null)}
-                    className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
-                  >
-                    Havalandırma
-                  </Link>
-                  <Link 
-                    to="/su-aritma"
-                    onClick={() => setActiveDropdown(null)}
-                    className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
-                  >
-                    Su Arıtma
-                  </Link>
-                  <Link 
-                    to="/ges"
-                    onClick={() => setActiveDropdown(null)}
-                    className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
-                  >
-                    GES
-                  </Link>
+                <div className="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-lg py-2 z-50">
+                  <Link to="/vrf-sistemleri" onClick={() => setActiveDropdown(null)} className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600">VRF Sistemleri</Link>
+                  <Link to="/klima-teknolojileri" onClick={() => setActiveDropdown(null)} className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600">Klima Teknolojileri</Link>
+                  <Link to="/isi-pompasi" onClick={() => setActiveDropdown(null)} className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600">Isı Pompası</Link>
+                  <Link to="/mekanik-tesisat" onClick={() => setActiveDropdown(null)} className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600">Mekanik Tesisat</Link>
+                  <Link to="/havuz" onClick={() => setActiveDropdown(null)} className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600">Havuz</Link>
+                  <Link to="/su-basinclandirma" onClick={() => setActiveDropdown(null)} className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600">Su Basınçlandırma</Link>
+                  <Link to="/havalandirma" onClick={() => setActiveDropdown(null)} className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600">Havalandırma</Link>
+                  <Link to="/su-aritma" onClick={() => setActiveDropdown(null)} className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600">Su Arıtma</Link>
+                  <Link to="/ges" onClick={() => setActiveDropdown(null)} className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600">GES</Link>
                 </div>
               )}
             </div>
@@ -127,49 +72,17 @@ export const Header: React.FC = () => {
                 <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === 'products' ? 'rotate-180' : ''}`} />
               </button>
               {activeDropdown === 'products' && (
-                <div className="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-lg py-2">
-                  <Link 
-                    to="/klimalar"
-                    onClick={() => setActiveDropdown(null)}
-                    className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
-                  >
-                    Klimalar
-                  </Link>
-                  <Link 
-                    to="/isi-pompalari"
-                    onClick={() => setActiveDropdown(null)}
-                    className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
-                  >
-                    Isı Pompaları
-                  </Link>
+                <div className="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-lg py-2 z-50">
+                  <Link to="/klimalar" onClick={() => setActiveDropdown(null)} className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600">Klimalar</Link>
+                  <Link to="/isi-pompalari" onClick={() => setActiveDropdown(null)} className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600">Isı Pompaları</Link>
                 </div>
               )}
             </div>
 
-            <Link 
-              to="/referanslar"
-              className="text-gray-600 hover:text-blue-600 transition-colors font-medium"
-            >
-              Referanslar
-            </Link>
-            <Link 
-              to="/galeri"
-              className="text-gray-600 hover:text-blue-600 transition-colors font-medium"
-            >
-              Galeri
-            </Link>
-            <Link 
-              to="/hakkimizda"
-              className="text-gray-600 hover:text-blue-600 transition-colors font-medium"
-            >
-              Hakkımızda
-            </Link>
-            <Link 
-              to="/iletisim"
-              className="text-gray-600 hover:text-blue-600 transition-colors font-medium"
-            >
-              İletişim
-            </Link>
+            <Link to="/referanslar" className="text-gray-600 hover:text-blue-600 font-medium">Referanslar</Link>
+            <Link to="/galeri" className="text-gray-600 hover:text-blue-600 font-medium">Galeri</Link>
+            <Link to="/hakkimizda" className="text-gray-600 hover:text-blue-600 font-medium">Hakkımızda</Link>
+            <Link to="/iletisim" className="text-gray-600 hover:text-blue-600 font-medium">İletişim</Link>
           </nav>
           
           <div className="flex items-center space-x-4">
@@ -190,69 +103,21 @@ export const Header: React.FC = () => {
               <div>
                 <button 
                   onClick={() => toggleDropdown('mobile-services')}
-                  className="flex items-center justify-between w-full text-gray-600 hover:text-blue-600 transition-colors font-medium text-left"
+                  className="flex items-center justify-between w-full text-gray-600 hover:text-blue-600 font-medium text-left"
                 >
                   <span>Hizmetlerimiz</span>
                   <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === 'mobile-services' ? 'rotate-180' : ''}`} />
                 </button>
                 {activeDropdown === 'mobile-services' && (
-                  <div className="mt-2 ml-4 space-y-2">
-                    <Link 
-                      to="/vrf-sistemleri"
-                      onClick={() => setIsMenuOpen(false)}
-                      className="block text-gray-500 hover:text-blue-600 transition-colors text-left"
-                    >
-                      VRF Sistemleri
-                    </Link>
-                    <Link 
-                      to="/klima-teknolojileri"
-                      onClick={() => setIsMenuOpen(false)}
-                      className="block text-gray-500 hover:text-blue-600 transition-colors text-left"
-                    >
-                      Klima Teknolojileri
-                    </Link>
-                    <Link 
-                      to="/isi-pompasi"
-                      onClick={() => setIsMenuOpen(false)}
-                      className="block text-gray-500 hover:text-blue-600 transition-colors text-left"
-                    >
-                      Isı Pompası
-                    </Link>
-                    <Link 
-                      to="/mekanik-tesisat"
-                      onClick={() => setIsMenuOpen(false)}
-                      className="block text-gray-500 hover:text-blue-600 transition-colors text-left"
-                    >
-                      Mekanik Tesisat
-                    </Link>
-                    <Link 
-                      to="/su-basinclandirma"
-                      onClick={() => setIsMenuOpen(false)}
-                      className="block text-gray-500 hover:text-blue-600 transition-colors text-left"
-                    >
-                      Su Basınçlandırma
-                    </Link>
-                    <Link 
-                      to="/havalandirma"
-                      onClick={() => setIsMenuOpen(false)}
-                      className="block text-gray-500 hover:text-blue-600 transition-colors text-left"
-                    >
-                      Havalandırma
-                    </Link>
-                    <Link 
-                      to="/su-aritma"
-                      onClick={() => setIsMenuOpen(false)}
-                      className="block text-gray-500 hover:text-blue-600 transition-colors text-left"
-                    >
-                      Su Arıtma
-                    </Link>
-                    <Link 
-                      to="/ges"
-                      onClick={() => setIsMenuOpen(false)}
-                      className="block text-gray-500 hover:text-blue-600 transition-colors text-left"
-                    >
-                      GES
-                    </Link>
+                  <div className="mt-2 ml-4 space-y-2 z-50 relative">
+                    <Link to="/vrf-sistemleri" onClick={() => setIsMenuOpen(false)} className="block text-gray-500 hover:text-blue-600">VRF Sistemleri</Link>
+                    <Link to="/klima-teknolojileri" onClick={() => setIsMenuOpen(false)} className="block text-gray-500 hover:text-blue-600">Klima Teknolojileri</Link>
+                    <Link to="/isi-pompasi" onClick={() => setIsMenuOpen(false)} className="block text-gray-500 hover:text-blue-600">Isı Pompası</Link>
+                    <Link to="/mekanik-tesisat" onClick={() => setIsMenuOpen(false)} className="block text-gray-500 hover:text-blue-600">Mekanik Tesisat</Link>
+                    <Link to="/su-basinclandirma" onClick={() => setIsMenuOpen(false)} className="block text-gray-500 hover:text-blue-600">Su Basınçlandırma</Link>
+                    <Link to="/havalandirma" onClick={() => setIsMenuOpen(false)} className="block text-gray-500 hover:text-blue-600">Havalandırma</Link>
+                    <Link to="/su-aritma" onClick={() => setIsMenuOpen(false)} className="block text-gray-500 hover:text-blue-600">Su Arıtma</Link>
+                    <Link to="/ges" onClick={() => setIsMenuOpen(false)} className="block text-gray-500 hover:text-blue-600">GES</Link>
                   </div>
                 )}
               </div>
@@ -261,59 +126,23 @@ export const Header: React.FC = () => {
               <div>
                 <button 
                   onClick={() => toggleDropdown('mobile-products')}
-                  className="flex items-center justify-between w-full text-gray-600 hover:text-blue-600 transition-colors font-medium text-left"
+                  className="flex items-center justify-between w-full text-gray-600 hover:text-blue-600 font-medium text-left"
                 >
                   <span>Ürünlerimiz</span>
                   <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === 'mobile-products' ? 'rotate-180' : ''}`} />
                 </button>
                 {activeDropdown === 'mobile-products' && (
-                  <div className="mt-2 ml-4 space-y-2">
-                    <Link 
-                      to="/klimalar"
-                      onClick={() => setIsMenuOpen(false)}
-                      className="block text-gray-500 hover:text-blue-600 transition-colors text-left"
-                    >
-                      Klimalar
-                    </Link>
-                    <Link 
-                      to="/isi-pompalari"
-                      onClick={() => setIsMenuOpen(false)}
-                      className="block text-gray-500 hover:text-blue-600 transition-colors text-left"
-                    >
-                      Isı Pompaları
-                    </Link>
+                  <div className="mt-2 ml-4 space-y-2 z-50 relative">
+                    <Link to="/klimalar" onClick={() => setIsMenuOpen(false)} className="block text-gray-500 hover:text-blue-600">Klimalar</Link>
+                    <Link to="/isi-pompalari" onClick={() => setIsMenuOpen(false)} className="block text-gray-500 hover:text-blue-600">Isı Pompaları</Link>
                   </div>
                 )}
               </div>
 
-              <Link 
-                to="/referanslar"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-gray-600 hover:text-blue-600 transition-colors font-medium text-left"
-              >
-                Referanslar
-              </Link>
-              <Link 
-                to="/galeri"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-gray-600 hover:text-blue-600 transition-colors font-medium text-left"
-              >
-                Galeri
-              </Link>
-              <Link 
-                to="/hakkimizda"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-gray-600 hover:text-blue-600 transition-colors font-medium text-left"
-              >
-                Hakkımızda
-              </Link>
-              <Link 
-                to="/iletisim"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-gray-600 hover:text-blue-600 transition-colors font-medium text-left"
-              >
-                İletişim
-              </Link>
+              <Link to="/referanslar" onClick={() => setIsMenuOpen(false)} className="text-gray-600 hover:text-blue-600 font-medium">Referanslar</Link>
+              <Link to="/galeri" onClick={() => setIsMenuOpen(false)} className="text-gray-600 hover:text-blue-600 font-medium">Galeri</Link>
+              <Link to="/hakkimizda" onClick={() => setIsMenuOpen(false)} className="text-gray-600 hover:text-blue-600 font-medium">Hakkımızda</Link>
+              <Link to="/iletisim" onClick={() => setIsMenuOpen(false)} className="text-gray-600 hover:text-blue-600 font-medium">İletişim</Link>
             </nav>
           </div>
         )}
@@ -322,9 +151,9 @@ export const Header: React.FC = () => {
       {/* Overlay to close dropdowns */}
       {activeDropdown && (
         <div 
-        className="fixed inset-0 z-30 lg:hidden" // sadece mobilde overlay’i düşür
-        onClick={() => setActiveDropdown(null)}
-      />      
+          className="fixed inset-0 z-40 lg:hidden"
+          onClick={() => setActiveDropdown(null)}
+        />      
       )}
     </header>
   );
