@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Thermometer, Leaf, Zap, Shield, CheckCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const heatPumpProducts = [
   {
@@ -9,13 +10,11 @@ const heatPumpProducts = [
     products: [
       {
         name: 'TOSHIBA Estia 6 kW',
-        capacity: '6 kW',
         features: ['R32 Çevre Dostu Gaz', 'A+++ Enerji Sınıfı', '-25°C\'ye Kadar Çalışma', 'Akıllı Defrost'],
         image: 'images/IsiPompalari.jpg'
       },
       {
         name: 'TOSHIBA Estia 8 kW',
-        capacity: '8 kW',
         features: ['Yüksek COP Değeri', 'Sessiz Çalışma', 'Uzaktan Kontrol', 'Kompakt Tasarım'],
         image: 'images/IsiPompalari.jpg'
       }
@@ -27,13 +26,11 @@ const heatPumpProducts = [
     products: [
       {
         name: 'ALARKO Flair Mono 6 kW',
-        capacity: '6 kW',
         features: ['Monoblok Tasarım', 'Kolay Kurulum', 'Türk Malı', 'Ekonomik Çözüm'],
         image: 'images/IsiPompalari.jpg'
       },
       {
         name: 'ALARKO Flair Mono 10 kW',
-        capacity: '10 kW',
         features: ['Yüksek Kapasite', 'Dayanıklı Yapı', 'Uzun Ömür', 'Servis Desteği'],
         image: 'images/IsiPompalari.jpg'
       }
@@ -45,13 +42,11 @@ const heatPumpProducts = [
     products: [
       {
         name: 'ALARKO Flair Split 8 kW',
-        capacity: '8 kW',
         features: ['Split Tasarım', 'Esnek Kurulum', 'Sessiz İç Ünite', 'Dijital Kontrol'],
         image: 'images/IsiPompalari.jpg'
       },
       {
         name: 'ALARKO Flair Split 12 kW',
-        capacity: '12 kW',
         features: ['Büyük Kapasiteler', 'Yüksek Verimlilik', 'Akıllı Kontrol', 'Güvenilir Sistem'],
         image: 'images/IsiPompalari.jpg'
       }
@@ -159,9 +154,6 @@ export const HeatPumpProductsPage: React.FC = () => {
                       alt={product.name}
                       className="w-full h-48 object-cover"
                     />
-                    <div className="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-                      {product.capacity}
-                    </div>
                   </div>
 
                   <div className="p-6">
@@ -175,10 +167,6 @@ export const HeatPumpProductsPage: React.FC = () => {
                         </div>
                       ))}
                     </div>
-
-                    <button className="w-full bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-medium transition-colors">
-                      Detaylı Bilgi Al
-                    </button>
                   </div>
                 </motion.div>
               ))}
@@ -196,9 +184,12 @@ export const HeatPumpProductsPage: React.FC = () => {
           <p className="text-xl text-green-100 mb-8 max-w-2xl mx-auto">
             Uzman ekibimiz ile ücretsiz keşif hizmeti alın ve size en uygun ısı pompasını seçin.
           </p>
-          <button className="bg-white text-green-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors">
+          <Link 
+            to="/iletisim"
+            className="bg-white text-green-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors inline-block"
+          >
             Ücretsiz Keşif Talep Et
-          </button>
+          </Link>
         </div>
       </section>
     </div>

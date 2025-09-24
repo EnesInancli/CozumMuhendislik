@@ -14,9 +14,18 @@ export const ContactPage: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Captcha kontrolü
+    const captchaInput = (e.target as HTMLFormElement).captcha.value;
+    if (parseInt(captchaInput) !== 8) {
+      alert('Güvenlik doğrulaması yanlış! 5 + 3 = 8');
+      return;
+    }
+    
     console.log('Form submitted:', formData);
     alert('Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.');
     setFormData({ name: '', email: '', phone: '', subject: '', service: '', message: '' });
+    (e.target as HTMLFormElement).reset();
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -127,12 +136,17 @@ export const ContactPage: React.FC = () => {
               </div>
 
               {/* Map Placeholder */}
-              <div className="mt-12 bg-gray-100 rounded-2xl h-64 flex items-center justify-center">
-                <div className="text-center">
-                  <MapPin className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-                  <p className="text-gray-600">Harita Görünümü</p>
-                  <p className="text-sm text-gray-500">Bodrum</p>
-                </div>
+              <div className="mt-12 rounded-2xl h-64 overflow-hidden">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3184.1403487670177!2d27.379500500000002!3d37.0541385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14be6d48c9e60bf9%3A0xc8863974f6b21ae1!2zQm9kcnVtIMOHw5Zaw5xNIE3DvGhlbmRpc2xpaw!5e0!3m2!1str!2sus!4v1758691337469!5m2!1str!2sus"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Bodrum Çözüm Mühendislik Konum"
+                />
               </div>
             </motion.div>
             
@@ -245,6 +259,21 @@ export const ContactPage: React.FC = () => {
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-none"
                       placeholder="Mesajınızı detaylı olarak yazın..."
+                    />
+                  </div>
+                  
+                  {/* Simple Captcha */}
+                  <div>
+                    <label htmlFor="captcha" className="block text-sm font-medium text-gray-700 mb-2">
+                      Güvenlik Doğrulaması: 5 + 3 = ? *
+                    </label>
+                    <input
+                      type="number"
+                      id="captcha"
+                      name="captcha"
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                      placeholder="Sonucu yazın"
                     />
                   </div>
                   

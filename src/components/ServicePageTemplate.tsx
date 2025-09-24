@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle} from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface Feature {
   icon: React.ComponentType<{ className?: string }>;
@@ -47,7 +48,6 @@ export const ServicePageTemplate: React.FC<ServicePageTemplateProps> = ({
   heroImage,
   features,
   mainContent,
-  systems,
   applications,
   ctaTitle,
   ctaDescription,
@@ -150,64 +150,9 @@ export const ServicePageTemplate: React.FC<ServicePageTemplateProps> = ({
         </div>
       </section>
 
-      {/* Systems Section */}
-      {systems && (
-        <section className="bg-gray-50 py-24">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">Sistem Çeşitleri</h2>
-              <p className="text-xl text-gray-600">İhtiyacınıza uygun çözümler</p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {systems.map((system, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300"
-                >
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">{system.name}</h3>
-                  <p className="text-gray-600 mb-6">{system.description}</p>
-                  
-                  {system.capacity && (
-                    <div className="bg-blue-50 rounded-lg p-4 mb-6">
-                      <p className="text-sm font-medium text-blue-800">Kapasite: {system.capacity}</p>
-                    </div>
-                  )}
-                  
-                  <div className="space-y-3 mb-6">
-                    {system.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-center space-x-3">
-                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                        <span className="text-gray-700">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {system.applications && (
-                    <div className="bg-gray-50 rounded-lg p-4">
-                      <h4 className="font-semibold text-gray-900 mb-2">Uygulama Alanları:</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {system.applications.map((app, appIndex) => (
-                          <span key={appIndex} className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">
-                            {app}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* Applications Section */}
-      <section className={`${systems ? 'bg-white' : 'bg-gray-50'} py-24`}>
+      <section className="bg-gray-50 py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Uygulama Alanları</h2>
@@ -244,9 +189,12 @@ export const ServicePageTemplate: React.FC<ServicePageTemplateProps> = ({
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
             {ctaDescription}
           </p>
-          <button className="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors">
+          <Link 
+            to="/iletisim"
+            className="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors inline-block"
+          >
             {ctaButtonText}
-          </button>
+          </Link>
         </div>
       </section>
     </div>
