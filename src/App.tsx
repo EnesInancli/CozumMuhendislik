@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { HomePage } from './pages/HomePage';
-import { ProductsPage } from './pages/ProductsPage';
 import { ReferencesPage } from './pages/ReferencesPage';
 import { GalleryPage } from './pages/GalleryPage';
 import { AboutPage } from './pages/AboutPage';
@@ -18,6 +17,8 @@ import { WaterPressurePage } from './pages/WaterPressurePage';
 import { VentilationPage } from './pages/VentilationPage';
 import { WaterTreatmentPage } from './pages/WaterTreatmentPage';
 import { SolarEnergyPage } from './pages/SolarEnergyPage';
+import { ClimatePage } from './pages/ClimatePage';
+
 
 import ScrollToTop from './components/ScrollToTop'; // ScrollToTop'u ekliyoruz
 import { PoolPage } from './pages/PoolPage';
@@ -30,7 +31,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/klimalar" element={<ClimateSystemsPage />} />
+          <Route path="/klimalar" element={<ClimatePage />} />
           <Route path="/isi-pompalari" element={<HeatPumpProductsPage />} />
           <Route path="/referanslar" element={<ReferencesPage />} />
           <Route path="/galeri" element={<GalleryPage />} />

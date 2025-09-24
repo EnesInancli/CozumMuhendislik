@@ -86,7 +86,7 @@ export const Header: React.FC = () => {
                     Havuz
                   </Link>
                   <Link 
-                    to="/su-basinçlandirma"
+                    to="/su-basinclandirma"
                     onClick={() => setActiveDropdown(null)}
                     className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
                   >
@@ -226,7 +226,7 @@ export const Header: React.FC = () => {
                       Mekanik Tesisat
                     </Link>
                     <Link 
-                      to="/su-basinçlandirma"
+                      to="/su-basinclandirma"
                       onClick={() => setIsMenuOpen(false)}
                       className="block text-gray-500 hover:text-blue-600 transition-colors text-left"
                     >
