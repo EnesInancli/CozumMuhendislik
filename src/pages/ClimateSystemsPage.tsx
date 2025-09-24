@@ -46,42 +46,6 @@ const climateProducts = [
         image: 'images/Klimalar.jpg'
       }
     ]
-  },
-  {
-    category: 'Alarko Split Klimalar',
-    description: 'Türk mühendisliği ile geliştirilen, güvenilir ve ekonomik split klima çözümleri.',
-    products: [
-      {
-        name: 'ALARKO Split 9000 BTU',
-        capacity: '9000 BTU',
-        features: ['A+ Enerji Sınıfı', 'Türk Malı', 'Ekonomik Çözüm', 'Kolay Bakım'],
-        image: 'images/Klimalar.jpg'
-      },
-      {
-        name: 'ALARKO Split 12000 BTU',
-        capacity: '12000 BTU',
-        features: ['A+ Enerji Sınıfı', 'Güvenilir Sistem', 'Uzun Ömür', 'Servis Desteği'],
-        image: 'images/Klimalar.jpg'
-      }
-    ]
-  },
-  {
-    category: 'Alarko Multi Klimalar',
-    description: 'Çoklu oda klimatizasyonu için ekonomik ve pratik multi split çözümleri.',
-    products: [
-      {
-        name: 'ALARKO Multi 2+1',
-        capacity: '18000 BTU',
-        features: ['2 iç ünite', 'Ekonomik fiyat', 'Kolay kurulum', 'Türk malı'],
-        image: 'images/Klimalar.jpg'
-      },
-      {
-        name: 'ALARKO Multi 4+1',
-        capacity: '30000 BTU',
-        features: ['4 iç ünite', 'Geniş kapasite', 'Merkezi kontrol', 'Dayanıklı yapı'],
-        image: 'images/Klimalar.jpg'
-      }
-    ]
   }
 ];
 

@@ -19,38 +19,6 @@ const heatPumpProducts = [
         image: 'images/IsiPompalari.jpg'
       }
     ]
-  },
-  {
-    category: 'Alarko Flair Monoblok Isı Pompası',
-    description: 'Tek parça tasarım ile kolay kurulum sunan, güvenilir monoblok ısı pompası sistemleri.',
-    products: [
-      {
-        name: 'ALARKO Flair Mono 6 kW',
-        features: ['Monoblok Tasarım', 'Kolay Kurulum', 'Türk Malı', 'Ekonomik Çözüm'],
-        image: 'images/IsiPompalari.jpg'
-      },
-      {
-        name: 'ALARKO Flair Mono 10 kW',
-        features: ['Yüksek Kapasite', 'Dayanıklı Yapı', 'Uzun Ömür', 'Servis Desteği'],
-        image: 'images/IsiPompalari.jpg'
-      }
-    ]
-  },
-  {
-    category: 'Alarko Flair Split Isı Pompası',
-    description: 'İç ve dış ünite ayrımı ile esnek kurulum imkanı sunan split tip ısı pompası çözümleri.',
-    products: [
-      {
-        name: 'ALARKO Flair Split 8 kW',
-        features: ['Split Tasarım', 'Esnek Kurulum', 'Sessiz İç Ünite', 'Dijital Kontrol'],
-        image: 'images/IsiPompalari.jpg'
-      },
-      {
-        name: 'ALARKO Flair Split 12 kW',
-        features: ['Büyük Kapasiteler', 'Yüksek Verimlilik', 'Akıllı Kontrol', 'Güvenilir Sistem'],
-        image: 'images/IsiPompalari.jpg'
-      }
-    ]
   }
 ];
 
