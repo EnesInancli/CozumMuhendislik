@@ -1,0 +1,68 @@
+[
+  {
+    "src": "images/Header_Background.jpeg",
+    "title": {
+      "tr": "Mekanik Tesisat Projesi",
+      "en": "Mechanical Installation Project"
+    },
+    "category": {
+      "tr": "Proje",
+      "en": "Project"
+    }
+  },
+  {
+    "src": "images/IsiPompalari.jpg",
+    "title": {
+      "tr": "Isı Pompası Sistemleri",
+      "en": "Heat Pump Systems"
+    },
+    "category": {
+      "tr": "Teknoloji",
+      "en": "Technology"
+    }
+  },
+  {
+    "src": "images/vrfsistem.png",
+    "title": {
+      "tr": "VRF Sistem Kurulumu",
+      "en": "VRF System Installation"
+    },
+    "category": {
+      "tr": "Proje",
+      "en": "Project"
+    }
+  },
+  {
+    "src": "images/VrfSistemToshiba.jpg",
+    "title": {
+      "tr": "Toshiba VRF Sistemleri",
+      "en": "Toshiba VRF Systems"
+    },
+    "category": {
+      "tr": "Teknoloji",
+      "en": "Technology"
+    }
+  },
+  {
+    "src": "images/VrfSistemToshiba.png",
+    "title": {
+      "tr": "VRF Klima Teknolojisi",
+      "en": "VRF Climate Technology"
+    },
+    "category": {
+      "tr": "Teknoloji",
+      "en": "Technology"
+    }
+  },
+  {
+    "src": "images/Rixos.png",
+    "title": {
+      "tr": "Rixos Hotel Projesi",
+      "en": "Rixos Hotel Project"
+    },
+    "category": {
+      "tr": "Proje",
+      "en": "Project"
+    }
+  }
+]
