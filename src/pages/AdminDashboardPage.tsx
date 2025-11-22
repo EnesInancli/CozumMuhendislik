@@ -57,6 +57,7 @@ export const AdminDashboardPage: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [showAddForm, setShowAddForm] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
+  const [uploadingImage, setUploadingImage] = useState(false);
 
   const [galleryFormData, setGalleryFormData] = useState({
     title: '', title_en: '', description: '', description_en: '',
@@ -108,6 +109,70 @@ export const AdminDashboardPage: React.FC = () => {
     const { data } = await supabase.from('products').select('*').eq('product_type', productFilter).order('display_order');
     if (data) setProducts(data);
     setLoading(false);
+  };
+
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>, formType: 'gallery' | 'page' | 'product') => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (!file.type.startsWith('image/')) {
+      alert('Lütfen geçerli bir resim dosyası seçin!');
+      return;
+    }
+
+    if (file.size > 5 * 1024 * 1024) {
+      alert('Dosya boyutu 5MB\'dan küçük olmalıdır!');
+      return;
+    }
+
+    setUploadingImage(true);
+
+    try {
+      const fileExt = file.name.split('.').pop();
+      const fileName = `${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`;
+      const filePath = `images/${fileName}`;
+
+      const { error: uploadError } = await supabase.storage
+        .from('images')
+        .upload(filePath, file, { upsert: false });
+
+      if (uploadError) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          const base64 = event.target?.result as string;
+          const imagePath = `data:${file.type};base64,${base64.split(',')[1]}`;
+
+          if (formType === 'gallery') {
+            setGalleryFormData({ ...galleryFormData, image_path: imagePath });
+          } else if (formType === 'page') {
+            setPageFormData({ ...pageFormData, image_path: imagePath });
+          } else if (formType === 'product') {
+            setProductFormData({ ...productFormData, image_path: imagePath });
+          }
+
+          alert('Resim başarıyla yüklendi! (Base64 formatında)');
+        };
+        reader.readAsDataURL(file);
+      } else {
+        const { data: publicData } = supabase.storage.from('images').getPublicUrl(filePath);
+        const imageUrl = publicData.publicUrl;
+
+        if (formType === 'gallery') {
+          setGalleryFormData({ ...galleryFormData, image_path: imageUrl });
+        } else if (formType === 'page') {
+          setPageFormData({ ...pageFormData, image_path: imageUrl });
+        } else if (formType === 'product') {
+          setProductFormData({ ...productFormData, image_path: imageUrl });
+        }
+
+        alert('Resim başarıyla yüklendi!');
+      }
+    } catch (error) {
+      console.error('Upload error:', error);
+      alert('Resim yüklenirken hata oluştu!');
+    } finally {
+      setUploadingImage(false);
+    }
   };
 
   const handleLogout = () => {
@@ -289,7 +354,17 @@ export const AdminDashboardPage: React.FC = () => {
                   <div className="md:col-span-2"><label className="block text-sm font-medium text-gray-300 mb-2">Category Description (EN)</label><input type="text" value={productFormData.category_description_en} onChange={(e) => setProductFormData({ ...productFormData, category_description_en: e.target.value })} className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white" /></div>
                   <div><label className="block text-sm font-medium text-gray-300 mb-2">Ürün Adı</label><input type="text" value={productFormData.name} onChange={(e) => setProductFormData({ ...productFormData, name: e.target.value })} className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white" required /></div>
                   <div><label className="block text-sm font-medium text-gray-300 mb-2">Kapasite (opsiyonel)</label><input type="text" value={productFormData.capacity} onChange={(e) => setProductFormData({ ...productFormData, capacity: e.target.value })} className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white" placeholder="18000 BTU" /></div>
-                  <div><label className="block text-sm font-medium text-gray-300 mb-2">Resim Yolu</label><input type="text" value={productFormData.image_path} onChange={(e) => setProductFormData({ ...productFormData, image_path: e.target.value })} className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white" placeholder="images/urun.jpg" required /></div>
+                  <div className="md:col-span-2">
+                    <label className="block text-sm font-medium text-gray-300 mb-2">Resim Yolu</label>
+                    <div className="flex gap-2">
+                      <input type="text" value={productFormData.image_path} onChange={(e) => setProductFormData({ ...productFormData, image_path: e.target.value })} className="flex-1 px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white" placeholder="images/urun.jpg" required />
+                      <label className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg cursor-pointer transition-colors flex items-center gap-2 whitespace-nowrap">
+                        <ImageIcon className="w-4 h-4" />
+                        {uploadingImage ? 'Yükleniyor...' : 'Masaüstünden Seç'}
+                        <input type="file" accept="image/*" onChange={(e) => handleImageUpload(e, 'product')} className="hidden" disabled={uploadingImage} />
+                      </label>
+                    </div>
+                  </div>
                   <div><label className="block text-sm font-medium text-gray-300 mb-2">Sıralama</label><input type="number" value={productFormData.display_order} onChange={(e) => setProductFormData({ ...productFormData, display_order: parseInt(e.target.value) })} className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white" /></div>
                 </div>
 
@@ -315,7 +390,17 @@ export const AdminDashboardPage: React.FC = () => {
                 <div><label className="block text-sm font-medium text-gray-300 mb-2">Description (EN)</label><input type="text" value={galleryFormData.description_en} onChange={(e) => setGalleryFormData({ ...galleryFormData, description_en: e.target.value })} className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white" required /></div>
                 <div><label className="block text-sm font-medium text-gray-300 mb-2">Kategori (TR)</label><input type="text" value={galleryFormData.category} onChange={(e) => setGalleryFormData({ ...galleryFormData, category: e.target.value })} className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white" required /></div>
                 <div><label className="block text-sm font-medium text-gray-300 mb-2">Category (EN)</label><input type="text" value={galleryFormData.category_en} onChange={(e) => setGalleryFormData({ ...galleryFormData, category_en: e.target.value })} className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white" required /></div>
-                <div><label className="block text-sm font-medium text-gray-300 mb-2">Resim Yolu</label><input type="text" value={galleryFormData.image_path} onChange={(e) => setGalleryFormData({ ...galleryFormData, image_path: e.target.value })} className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white" placeholder="images/ornek.jpg" required /></div>
+                <div className="md:col-span-2">
+                  <label className="block text-sm font-medium text-gray-300 mb-2">Resim Yolu</label>
+                  <div className="flex gap-2">
+                    <input type="text" value={galleryFormData.image_path} onChange={(e) => setGalleryFormData({ ...galleryFormData, image_path: e.target.value })} className="flex-1 px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white" placeholder="images/ornek.jpg" required />
+                    <label className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg cursor-pointer transition-colors flex items-center gap-2">
+                      <ImageIcon className="w-4 h-4" />
+                      {uploadingImage ? 'Yükleniyor...' : 'Masaüstünden Seç'}
+                      <input type="file" accept="image/*" onChange={(e) => handleImageUpload(e, 'gallery')} className="hidden" disabled={uploadingImage} />
+                    </label>
+                  </div>
+                </div>
                 <div><label className="block text-sm font-medium text-gray-300 mb-2">Sıralama</label><input type="number" value={galleryFormData.display_order} onChange={(e) => setGalleryFormData({ ...galleryFormData, display_order: parseInt(e.target.value) })} className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white" /></div>
                 <div className="md:col-span-2 flex gap-4">
                   <button type="submit" className="flex items-center gap-2 px-6 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors"><Save className="w-4 h-4" />{editingId ? 'Güncelle' : 'Kaydet'}</button>
@@ -335,7 +420,17 @@ export const AdminDashboardPage: React.FC = () => {
                 <div><label className="block text-sm font-medium text-gray-300 mb-2">Page Name (EN)</label><input type="text" value={pageFormData.page_name_en} onChange={(e) => setPageFormData({ ...pageFormData, page_name_en: e.target.value })} className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white" required /></div>
                 <div><label className="block text-sm font-medium text-gray-300 mb-2">Alt Metin (TR)</label><input type="text" value={pageFormData.alt_text_tr} onChange={(e) => setPageFormData({ ...pageFormData, alt_text_tr: e.target.value })} className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white" /></div>
                 <div><label className="block text-sm font-medium text-gray-300 mb-2">Alt Text (EN)</label><input type="text" value={pageFormData.alt_text_en} onChange={(e) => setPageFormData({ ...pageFormData, alt_text_en: e.target.value })} className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white" /></div>
-                <div className="md:col-span-2"><label className="block text-sm font-medium text-gray-300 mb-2">Resim Yolu</label><input type="text" value={pageFormData.image_path} onChange={(e) => setPageFormData({ ...pageFormData, image_path: e.target.value })} className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white" placeholder="images/ornek.jpg" required /></div>
+                <div className="md:col-span-2">
+                  <label className="block text-sm font-medium text-gray-300 mb-2">Resim Yolu</label>
+                  <div className="flex gap-2">
+                    <input type="text" value={pageFormData.image_path} onChange={(e) => setPageFormData({ ...pageFormData, image_path: e.target.value })} className="flex-1 px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white" placeholder="images/ornek.jpg" required />
+                    <label className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg cursor-pointer transition-colors flex items-center gap-2">
+                      <ImageIcon className="w-4 h-4" />
+                      {uploadingImage ? 'Yükleniyor...' : 'Masaüstünden Seç'}
+                      <input type="file" accept="image/*" onChange={(e) => handleImageUpload(e, 'page')} className="hidden" disabled={uploadingImage} />
+                    </label>
+                  </div>
+                </div>
                 <div className="md:col-span-2 flex gap-4">
                   <button type="submit" className="flex items-center gap-2 px-6 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors"><Save className="w-4 h-4" />{editingId ? 'Güncelle' : 'Kaydet'}</button>
                   <button type="button" onClick={resetForm} className="px-6 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors">İptal</button>
